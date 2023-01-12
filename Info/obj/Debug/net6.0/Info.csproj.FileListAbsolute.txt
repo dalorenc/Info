@@ -68,3 +68,4 @@ C:\Users\loren\source\repos\Info\obj\Debug\net6.0\refint\Info.dll
 C:\Users\loren\source\repos\Info\obj\Debug\net6.0\Info.pdb
 C:\Users\loren\source\repos\Info\obj\Debug\net6.0\Info.genruntimeconfig.cache
 C:\Users\loren\source\repos\Info\obj\Debug\net6.0\ref\Info.dll
+C:\Users\loren\source\repos\Info\bin\Debug\net6.0\libman.json
