@@ -33,5 +33,8 @@ namespace Info.Models
         [Display(Name = "Czy aktywna?")]
         [DefaultValue(true)]
         public bool Display { get; set; }
+
+        //Lista wszystkich tekstów należących do kategorii
+        public virtual List<Text>? Texts { get; set; }
     }
 }

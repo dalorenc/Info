@@ -31,5 +31,12 @@ namespace Info.Models
         [FileExtensions(Extensions = ". jpg,. png,. gif", ErrorMessage = "Niepoprawne rozszerzenie pliku.")]
         [MaxLength(128)]
         public string? Photo { get; set; }
+
+        //Wirtualna lista tekstów danego użytkonwika
+        public virtual List<Text>? Texts { get; set; }
+
+        //Wirtualna lista komentarzy danego użytkownika
+        public virtual List<Opinion>? Opinions { get; set; }
+
     }
 }

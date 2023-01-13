@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Info.Models
 {
@@ -24,9 +25,15 @@ namespace Info.Models
         [Required]
         [Display(Name = "Komentowany tekst:")]
         public int TextId { get; set; }
+        //Komentowany tekst
+        [ForeignKey("TextId")]
+        public virtual Text? Text { get; set; }
 
         [Display(Name = "Autor komentarza:")]
         public string? Id { get; set; }
+        //Autor komentarza
+        [ForeignKey("Id")]
+        public virtual AppUser? User { get; set; }
 
     }
 

@@ -44,9 +44,18 @@ namespace Info.Models
 
         [Display(Name = "Kategoria tekstu:")]
         public int CategoryId { get; set; }
+        //Kategoria tekstu
+        [ForeignKey("CategoryId")]
+        public virtual Category? Category { get; set; }
 
 
         [Display(Name = "Autor tekstu:")]
         public string? Id { get; set; }
+        //Autor tekstu
+        [ForeignKey("Id")]
+        public virtual AppUser? User { get; set; }
+
+        //Lista wszystkich komentarzy tekstu
+        public virtual List<Opinion>? Opinions { get; set; }
     }
 }
