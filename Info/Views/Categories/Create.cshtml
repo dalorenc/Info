@@ -5,7 +5,12 @@
 }
 
 <h1 class="text-primary oswald">Nowa</h1>
-
+@{
+    if (!String.IsNullOrEmpty(ViewBag.ErrorMessage))
+    {
+        <div class="alert alert-danger" role="alert"> @ViewBag.ErrorMessage </div>
+    }
+}
 <h4 class="text-success"><b>Kategoria</b></h4>
 <hr />
 <div class="row">

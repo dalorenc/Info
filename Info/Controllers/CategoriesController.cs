@@ -56,11 +56,16 @@ namespace Info.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("CategoryId,Name,Description,Icon,Active,Display")] Category category)
         {
-            if (ModelState.IsValid)
+            if (!CategoryNameExists(category.Name))
             {
                 _context.Add(category);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                ViewBag.ErrorMessage = "Kategoria o takiej nazwie już istnieje!";
+                return View("Create");
             }
             return View(category);
         }
@@ -156,6 +161,11 @@ namespace Info.Controllers
         private bool CategoryExists(int id)
         {
           return _context.Categories.Any(e => e.CategoryId == id);
+        }
+
+        private bool CategoryNameExists(string? name)
+        {
+            return (_context.Categories?.Any(e => e.Name == name)).GetValueOrDefault();
         }
     }
 }
