@@ -44,6 +44,14 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
+    name: "texts",
+    pattern: "Tekstyinformatyczne",
+    defaults: new { controller = "Texts", action = "Index" });
+app.MapControllerRoute(
+     name: "pages",
+     pattern: "Tekstyinformatyczne/Strona{PageNumber}",
+     defaults: new { controller = "Texts", action = "Index" });
+app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
