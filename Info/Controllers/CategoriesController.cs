@@ -122,7 +122,7 @@ namespace Info.Controllers
         }
 
         // GET: Categories/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int id)
         {
             if (id == null || _context.Categories == null)
             {
@@ -134,6 +134,11 @@ namespace Info.Controllers
             if (category == null)
             {
                 return NotFound();
+            }
+
+            if (TextsInCategory(id))
+            {
+                ViewBag.DeleteMessage = "Nie można usunąć wybranej kategorii, gdyż posiada przypisane teksty.";
             }
 
             return View(category);
@@ -167,5 +172,11 @@ namespace Info.Controllers
         {
             return (_context.Categories?.Any(e => e.Name == name)).GetValueOrDefault();
         }
+
+        private bool TextsInCategory(int id)
+        {
+            return (_context.Texts?.Any(t => t.CategoryId == id)).GetValueOrDefault();
+        }
+
     }
 }

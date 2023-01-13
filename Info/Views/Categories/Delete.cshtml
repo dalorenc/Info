@@ -5,6 +5,17 @@
 }
 
 <h1 class="text-primary oswald">Usuwanie</h1>
+@{
+    if (!String.IsNullOrEmpty(ViewBag.DeleteMessage))
+    {
+        <h5 class="alert alert-info" role="alert"> <i class="bi-info-circle"></i>&nbsp; @ViewBag.DeleteMessage </h5>
+    }
+    else
+    {
+        <h5 class="alert alert-danger" role="alert"><i class="bi-exclamation-triangle"></i>&nbsp; Czy na pewno chcesz usunąć tę kategorię?</h5>
+    }
+}
+
 <h5 class="alert alert-danger" role="alert">Czy na pewno chcesz usunąć tę
 kategorię?</h5>
 <div>
@@ -44,8 +55,13 @@ kategorię?</h5>
     </dl>
     
     <form asp-action="Delete">
-        <input type="hidden" asp-for="CategoryId" />
-        <input type="submit" value="Usuń" class="btn btn-danger" /> |
+        @{
+            if (String.IsNullOrEmpty(ViewBag.DeleteMessage))
+            {
+                <input type="hidden" asp-for="CategoryId" />
+                <input type="submit" value="Usuń" class="btn btn-danger" />
+            }
+           }
         <a asp-action="Index" class="btn btn-light">Powrót do listy</a>
     </form>
 </div>
