@@ -27,7 +27,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Display)
             </th>
-            <th></th>
+            <th width="12%"></th>
         </tr>
     </thead>
     <tbody>
@@ -40,6 +40,7 @@
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
+                <i class="bi-@item.Icon"></i><br/>
                 @Html.DisplayFor(modelItem => item.Icon)
             </td>
             <td>
@@ -49,9 +50,9 @@
                 @Html.DisplayFor(modelItem => item.Display)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.CategoryId">Edytuj</a> |
-                <a asp-action="Details" asp-route-id="@item.CategoryId">Szczegóły</a> |
-                <a asp-action="Delete" asp-route-id="@item.CategoryId">Usuń</a>
+                <a class="btn btn-outline-primary rounded-circle my-1" title="Edycja" asp-action="Edit" asp-route-id="@item.CategoryId"><i class="bi-pen-fill" aria-label="Edycja kategorii"></i></a>
+                <a class="btn btn-outline-warning rounded-circle my-1" title="Szczegóły" asp-action="Details" asp-route-id="@item.CategoryId"><i class="bi-eye-fill" aria-label="Szczegóły kategorii"></i></a>
+                <a class="btn btn-outline-danger rounded-circle my-1" title="Usuń" asp-action="Delete" asp-route-id="@item.CategoryId"><i class="bi-trash-fill" aria-label="Usuń kategorię"></i></a>
             </td>
         </tr>
 }
