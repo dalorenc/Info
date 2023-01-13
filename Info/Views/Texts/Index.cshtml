@@ -1,83 +1,72 @@
-﻿@model IEnumerable<Info.Models.Text>
+﻿@model TextsViewModel
 
 @{
-    ViewData["Title"] = "Index";
+ ViewData["Title"] = "Lista tekstów";
 }
 
-<h1>Index</h1>
+<div class="container">
+    <div class="row">
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Summary)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Keywords)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Content)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Graphic)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Active)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AddedDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Category)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Summary)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Keywords)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Content)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Graphic)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Active)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AddedDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Category.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.User.Id)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.TextId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.TextId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.TextId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+        <!-- Wyszukiwarka -->
+        <div class="d-none d-md-block col-md-12 col-xl-3">
+            <div class="card mt-2 shadow-sm ">
+                <div class="card-body">Wyszukiwarka</div>
+            </div>
+        </div>
+        <!-- Lista tekstów -->
+        <div class="col-xl-9">
+            <!-- Lista tekstów -->
+            @foreach (var item in Model.Texts)
+            {
+               <div class="card mt-2">
+                <div class="card-header">
+                    <h4 class="text-primary oswald">@item.Title</h4>
+                </div>
+                 <div class="row">
+                    <div class="col-md-4">
+                        <img src="@Url.Content(item.Graphic == null ? "~/img/mini/"+item.CategoryId+".jpg" : "~/img/mini/"+item.Graphic)"class="img-fluid" alt="@item.Category.Name" />
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title text-success">@item.User.FullName</h5>
+                            <p class="card-text fst-italic">@item.Summary</p>
+                            <p class="card-text"><small class="text-muted">Opublikowano: @item.AddedDate</small></p>
+                            <div class="position-relative">
+                                <a href="#" class="btn btn-outline-primary position-absolute bottom-0 end-0">Czytaj >>></a>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+            </div> 
+            }   
+        </div>
+    </div>
+    <div class="row mt-3">
+        <nav aria-label="Page navigation">
+             <ul class="pagination">
+                @{
+                    if(Model.TextsView.PageNumber > 1)
+                    {
+                        <li class="page-item">
+                            <a class="page-link" href="@Url.Action("Index","Texts",new{PageNumber =Model.TextsView.PageNumber - 1})">Poprzednia</a>
+                        </li>
+                    }
+
+                    for (var i=1; i<=Model.TextsView.PageCount; i++)
+                    {
+                        <li class="@(i == @Model.TextsView.PageNumber ? "page-item active" : "pageactive")">
+                            <a class="page-link" href="@Url.Action("Index", "Texts", new{PageNumber = i})">@i</a>
+                        </li>
+                    }
+
+                    if(Model.TextsView.PageNumber < Model.TextsView.PageCount)
+                    {
+                        <li class="page-item">
+                            <a class="page-link" href="@Url.Action("Index", "Texts", new{PageNumber = Model.TextsView.PageNumber + 1})">Następna</a> 
+                        </li>
+                    }
+                 }
+             </ul>
+        </nav>
+    <div>
+</div>
