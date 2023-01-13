@@ -50,9 +50,16 @@
                 @Html.DisplayFor(modelItem => item.Display)
             </td>
             <td>
-                <a class="btn btn-outline-primary rounded-circle my-1" title="Edycja" asp-action="Edit" asp-route-id="@item.CategoryId"><i class="bi-pen-fill" aria-label="Edycja kategorii"></i></a>
-                <a class="btn btn-outline-warning rounded-circle my-1" title="Szczegóły" asp-action="Details" asp-route-id="@item.CategoryId"><i class="bi-eye-fill" aria-label="Szczegóły kategorii"></i></a>
+
+                                            <a class="btn btn-outline-warning rounded-circle my-1" title="Szczegóły" asp-action="Details" asp-route-id="@item.CategoryId"><i class="bi-eye-fill" aria-label="Szczegóły kategorii"></i></a>
+
+                    @{
+                        if(User.IsInRole("admin"))
+                        {
+                                            <a class="btn btn-outline-primary rounded-circle my-1" title="Edycja" asp-action="Edit" asp-route-id="@item.CategoryId"><i class="bi-pen-fill" aria-label="Edycja kategorii"></i></a>
                 <a class="btn btn-outline-danger rounded-circle my-1" title="Usuń" asp-action="Delete" asp-route-id="@item.CategoryId"><i class="bi-trash-fill" aria-label="Usuń kategorię"></i></a>
+                        }
+                    }  
             </td>
         </tr>
 }
