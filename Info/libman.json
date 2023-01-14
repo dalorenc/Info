@@ -3,9 +3,16 @@
   "defaultProvider": "cdnjs",
   "libraries": [
     {
-      "provider": "cdnjs",
       "library": "bootstrap@5.2.3",
       "destination": "wwwroot/lib/bootstrap/dist/"
+    },
+    {
+      "library": "ckeditor5@35.4.0",
+      "destination": "wwwroot/lib/ckeditor5/",
+      "files": [
+        "ckeditor.min.js",
+        "translations/pl.min.js"
+      ]
     }
   ]
 }

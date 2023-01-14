@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "qcD8SN3yQtL5sFWYfLsalmEFpnUVe7gtM0D3tQ/v1AU=",
+  "Hash": "M1CLsqgPTbiHgWyvLnhdX6W4U1cFDcptUzuerRXkFo4=",
   "Source": "Info",
   "BasePath": "_content/Info",
   "Mode": "Default",
@@ -1207,6 +1207,23 @@
       "OriginalItemSpec": "wwwroot\\graphic\\logo.png"
     },
     {
+      "Identity": "C:\\Users\\loren\\source\\repos\\Info\\wwwroot\\img\\af81824e-81d9-429b-b86e-f439de9e3f85.jpg",
+      "SourceId": "Info",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\loren\\source\\repos\\Info\\wwwroot\\",
+      "BasePath": "_content/Info",
+      "RelativePath": "img/af81824e-81d9-429b-b86e-f439de9e3f85.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\af81824e-81d9-429b-b86e-f439de9e3f85.jpg"
+    },
+    {
       "Identity": "C:\\Users\\loren\\source\\repos\\Info\\wwwroot\\img\\mini\\1.jpg",
       "SourceId": "Info",
       "SourceType": "Discovered",
@@ -1307,6 +1324,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\mini\\6.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\loren\\source\\repos\\Info\\wwwroot\\img\\mini\\af81824e-81d9-429b-b86e-f439de9e3f85.jpg",
+      "SourceId": "Info",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\loren\\source\\repos\\Info\\wwwroot\\",
+      "BasePath": "_content/Info",
+      "RelativePath": "img/mini/af81824e-81d9-429b-b86e-f439de9e3f85.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\mini\\af81824e-81d9-429b-b86e-f439de9e3f85.jpg"
     },
     {
       "Identity": "C:\\Users\\loren\\source\\repos\\Info\\wwwroot\\img\\mini\\brak (1).jpg",
@@ -3602,6 +3636,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
+    },
+    {
+      "Identity": "C:\\Users\\loren\\source\\repos\\Info\\wwwroot\\lib\\ckeditor5\\ckeditor.min.js",
+      "SourceId": "Info",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\loren\\source\\repos\\Info\\wwwroot\\",
+      "BasePath": "_content/Info",
+      "RelativePath": "lib/ckeditor5/ckeditor.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\ckeditor5\\ckeditor.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\loren\\source\\repos\\Info\\wwwroot\\lib\\ckeditor5\\translations\\pl.min.js",
+      "SourceId": "Info",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\loren\\source\\repos\\Info\\wwwroot\\",
+      "BasePath": "_content/Info",
+      "RelativePath": "lib/ckeditor5/translations/pl.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\ckeditor5\\translations\\pl.min.js"
     },
     {
       "Identity": "C:\\Users\\loren\\source\\repos\\Info\\wwwroot\\lib\\jquery\\dist\\jquery.js",
