@@ -9,6 +9,7 @@ using Info.Data;
 using Info.Models;
 using Info.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace Info.Controllers
 {
@@ -100,8 +101,7 @@ namespace Info.Controllers
         // GET: Texts/Create
         public IActionResult Create()
         {
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "Description");
-            ViewData["Id"] = new SelectList(_context.AppUsers, "Id", "Id");
+            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "Name");
             return View();
         }
 
@@ -110,16 +110,19 @@ namespace Info.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TextId,Title,Summary,Keywords,Content,Graphic,Active,AddedDate,CategoryId,Id")] Text text)
+        public async Task<IActionResult> Create([Bind("TextId,Title,Summary,Keywords,Content,Active,CategoryId")] Text text)
         {
             if (ModelState.IsValid)
             {
+                //odczytywanie identyfikatora użytkownika i daty
+                text.Id = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                text.AddedDate = DateTime.Now;
+
                 _context.Add(text);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "Description", text.CategoryId);
-            ViewData["Id"] = new SelectList(_context.AppUsers, "Id", "Id", text.Id);
+            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "Name", text.CategoryId);
             return View(text);
         }
 

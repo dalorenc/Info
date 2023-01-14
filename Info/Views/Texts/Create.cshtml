@@ -1,16 +1,15 @@
 ﻿@model Info.Models.Text
 
 @{
-    ViewData["Title"] = "Create";
+ ViewData["Title"] = "Dodawanie tekstu";
 }
+<h1 class="oswald text-primary">Dodawanie tekstu</h1>
+<h4 class="text-success">Nowy tekst</h4>
 
-<h1>Create</h1>
-
-<h4>Text</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
+    <div class="col-md-8 interspace">
+        <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Title" class="control-label"></label>
@@ -32,29 +31,27 @@
                 <input asp-for="Content" class="form-control" />
                 <span asp-validation-for="Content" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="Graphic" class="control-label"></label>
-                <input asp-for="Graphic" class="form-control" />
+                <input type="file" name="picture" id="picture" class="form-control" accept=".jpg,.gif,.png" />
                 <span asp-validation-for="Graphic" class="text-danger"></span>
             </div>
+
             <div class="form-group form-check">
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="Active" /> @Html.DisplayNameFor(model => model.Active)
                 </label>
             </div>
-            <div class="form-group">
-                <label asp-for="AddedDate" class="control-label"></label>
-                <input asp-for="AddedDate" class="form-control" />
-                <span asp-validation-for="AddedDate" class="text-danger"></span>
-            </div>
+            
             <div class="form-group">
                 <label asp-for="CategoryId" class="control-label"></label>
-                <select asp-for="CategoryId" class ="form-control" asp-items="ViewBag.CategoryId"></select>
+                <select asp-for="CategoryId" class ="form-control" asp-items="ViewBag.CategoryId">
+                    <option value="">--- Wybierz kategorię ---</option>
+                </select>
+
             </div>
-            <div class="form-group">
-                <label asp-for="Id" class="control-label"></label>
-                <select asp-for="Id" class ="form-control" asp-items="ViewBag.Id"></select>
-            </div>
+            
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
@@ -62,9 +59,8 @@
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+<input type="submit" value="Dodaj tekst" class="btn btn-primary" />
+<a asp-action="Index" class="btn btn-light">Powrót do listy</a>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

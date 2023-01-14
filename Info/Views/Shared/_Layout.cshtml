@@ -46,7 +46,10 @@
                                         {
                                             <li><a class=" nav-link text-dark" asp-area="" asp-controller="Texts" asp-action="List">Lista tekstów</a></li>
                                         }
-
+                                        @if (User.IsInRole("author"))
+                                        {
+                                            <li><a class="nav-link text-dark" asp-area="" asp-controller="Texts" asp-action="Create">Nowy tekst</a></li>
+                                        }
                             </ul>
                          </li>
 
