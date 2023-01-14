@@ -8,11 +8,31 @@
     <div class="row">
 
         <!-- Wyszukiwarka -->
+        
         <div class="d-none d-md-block col-md-12 col-xl-3">
-            <div class="card mt-2 shadow-sm ">
-                <div class="card-body">Wyszukiwarka</div>
-            </div>
-        </div>
+			<div class="card mb-3 shadow-sm">
+				<div class="card-body">
+					@using(Html.BeginForm("Index", "Texts", new { PageNumber = "1" }, FormMethod.Get)){
+						<div class="row gt-3">
+							<div class="form-group col-auto">
+								<label for="Kategoria">Kategoria:</label>
+								@Html.DropDownList("Kategoria", ViewBag.Category, "---wszystkie---", htmlAttributes: new{@class = "form-control"})
+								</div>
+							<div class="form-group col-auto">
+								<label for="Autor">Autor:</label>
+								@Html.DropDownList("Autor", ViewBag.Author, "---wszyscy---", htmlAttributes: new{@class = "form-control"})
+								</div>
+							<div class="form-group col-auto">
+								<label for="Fraza">Fraza:</label>
+								<input type="text" class="form-control" id="Fraza" name="Fraza" placeholder="Szukany ciąg" value="@Model.TextsView?.Phrase">
+								</div>
+								<button type="submit" class="btn btn-primary mt-3 col-auto">Filtruj</button>
+							</div>
+					}
+				</div>
+			</div>
+		</div>
+
         <!-- Lista tekstów -->
         <div class="col-xl-9">
             <!-- Lista tekstów -->
@@ -68,5 +88,4 @@
                  }
              </ul>
         </nav>
-    <div>
 </div>
