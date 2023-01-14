@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Info.Data;
 using Info.Models;
 using Info.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Info.Controllers
 {
@@ -69,6 +70,7 @@ namespace Info.Controllers
             return View(textsViewModel);
         }
         // GET: Texts
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> List()
         {
             var applicationDbContext = _context.Texts.Include(t => t.Category).Include(t => t.User);
