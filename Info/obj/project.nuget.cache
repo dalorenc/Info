@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "eqEL3es16LQFY3d5bmfU0TRPU1B5Jdm4tImljiNIBrnTLqb8SkCpTyfZxorTzOfBYcaxfzn75lBDR0xVL6pbYg==",
+  "dgSpecHash": "T1nK3xKjXpm1ipZqXbRm1bjTIeSjwasgFgXMmcZgw0au5y6wMVIGxsgmR/YRenNPsZrOzW94vYTkllOvQ+LFSQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\loren\\source\\repos\\Info\\Info.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\loren\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\loren\\.nuget\\packages\\lazziya.imageresize\\4.1.3\\lazziya.imageresize.4.1.3.nupkg.sha512",
     "C:\\Users\\loren\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
     "C:\\Users\\loren\\.nuget\\packages\\messagepack.annotations\\2.1.152\\messagepack.annotations.2.1.152.nupkg.sha512",
     "C:\\Users\\loren\\.nuget\\packages\\messagepackanalyzer\\2.1.152\\messagepackanalyzer.2.1.152.nupkg.sha512",

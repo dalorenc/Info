@@ -10,16 +10,19 @@ using Info.Models;
 using Info.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
+using Info.Infrastructure;
 
 namespace Info.Controllers
 {
     public class TextsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private IWebHostEnvironment _hostEnvironment;
 
-        public TextsController(ApplicationDbContext context)
+        public TextsController(ApplicationDbContext context, IWebHostEnvironment environment)
         {
             _context = context;
+            _hostEnvironment = environment;
         }
 
         // GET: Texts
@@ -110,13 +113,32 @@ namespace Info.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TextId,Title,Summary,Keywords,Content,Active,CategoryId")] Text text)
+        public async Task<IActionResult> Create([Bind("TextId,Title,Summary,Keywords,Content,Active,CategoryId")] Text text, IFormFile? picture)
         {
             if (ModelState.IsValid)
             {
                 //odczytywanie identyfikatora użytkownika i daty
                 text.Id = User.FindFirstValue(ClaimTypes.NameIdentifier);
                 text.AddedDate = DateTime.Now;
+
+                if (picture != null && picture.Length > 0)
+                {
+                    ImageFileUpload imageFileResult = new(_hostEnvironment);
+                    FileSendResult fileSendResult = imageFileResult.SendFile(picture, "img", 600);
+                    if (fileSendResult.Success)
+                    {
+                        text.Graphic = fileSendResult.Name;
+                    }
+                    else
+                    {
+                        ViewBag.ErrorMessage = "Wybrany plik nie jest obrazkiem!";
+                        ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "Name", text.CategoryId);
+                        return View(text);
+                    }
+                }
+
+
+
 
                 _context.Add(text);
                 await _context.SaveChangesAsync();

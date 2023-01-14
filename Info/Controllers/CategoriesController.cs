@@ -129,7 +129,7 @@ namespace Info.Controllers
 
         // GET: Categories/Delete/5
         [Authorize(Roles = "admin")]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Categories == null)
             {
@@ -143,7 +143,7 @@ namespace Info.Controllers
                 return NotFound();
             }
 
-            if (TextsInCategory(id))
+            if (TextsInCategory((int)id))
             {
                 ViewBag.DeleteMessage = "Nie można usunąć wybranej kategorii, gdyż posiada przypisane teksty.";
             }
