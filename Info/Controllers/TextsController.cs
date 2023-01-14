@@ -73,7 +73,8 @@ namespace Info.Controllers
 
             return View(textsViewModel);
         }
-        // GET: Texts
+
+        // GET: List
         [Authorize(Roles = "admin")]
         public async Task<IActionResult> List()
         {
@@ -98,10 +99,45 @@ namespace Info.Controllers
                 return NotFound();
             }
 
-            return View(text);
+            TextWithOpinions textWithOpinions = new TextWithOpinions();
+
+            textWithOpinions.SelectedText = await _context.Texts
+                .Include(t => t.Category)
+                .Include(t => t.User)
+                .Include(t => t.Opinions)
+                .ThenInclude(c => c.User)
+                .Where(t => t.Active == true)
+                .FirstOrDefaultAsync(m => m.TextId == id);
+
+            if (textWithOpinions.SelectedText == null)
+            {
+                return NotFound();
+            }
+
+            textWithOpinions.NewOpinion = new Opinion { TextId = (int)id, Id = textWithOpinions.SelectedText.Id };
+
+            textWithOpinions.ReadingTime = (int)Math.Ceiling((double)textWithOpinions.SelectedText.Content.Length / 1400);
+
+            textWithOpinions.CommentsNumber = _context.Opinions
+                .Where(x => x.TextId == id)
+                .Count();
+
+            if (textWithOpinions.CommentsNumber != 0)
+            {
+                textWithOpinions.OpinionsNumber = _context.Opinions.Where(o => o.TextId == id).Where(x => x.Rating != null).Count();
+                if (textWithOpinions.OpinionsNumber != 0)
+                {
+                    textWithOpinions.AverageScore = (float)(textWithOpinions.OpinionsNumber > 0 ? _context.Opinions.Where(o => o.TextId == id).Where(x => x.Rating != null).Average(x => (int)x.Rating) : 0);
+                }
+            }
+
+            textWithOpinions.Description = Variaty.Phrase("komentarz", "komentarze", "komentarzy", textWithOpinions.CommentsNumber);
+
+            return View(textWithOpinions);
         }
 
         // GET: Texts/Create
+        [Authorize(Roles = "admin, author")]
         public IActionResult Create()
         {
             ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "Name");
@@ -111,20 +147,20 @@ namespace Info.Controllers
         // POST: Texts/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "admin, author")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("TextId,Title,Summary,Keywords,Content,Active,CategoryId")] Text text, IFormFile? picture)
         {
             if (ModelState.IsValid)
             {
-                //odczytywanie identyfikatora użytkownika i daty
                 text.Id = User.FindFirstValue(ClaimTypes.NameIdentifier);
                 text.AddedDate = DateTime.Now;
 
                 if (picture != null && picture.Length > 0)
                 {
                     ImageFileUpload imageFileResult = new(_hostEnvironment);
-                    FileSendResult fileSendResult = imageFileResult.SendFile(picture, "img", 600);
+                    FileSendResults fileSendResult = imageFileResult.SendFile(picture, "img", 600);
                     if (fileSendResult.Success)
                     {
                         text.Graphic = fileSendResult.Name;
@@ -137,9 +173,6 @@ namespace Info.Controllers
                     }
                 }
 
-
-
-
                 _context.Add(text);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -149,6 +182,7 @@ namespace Info.Controllers
         }
 
         // GET: Texts/Edit/5
+        [Authorize(Roles = "admin, author")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Texts == null)
@@ -161,25 +195,50 @@ namespace Info.Controllers
             {
                 return NotFound();
             }
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "Description", text.CategoryId);
-            ViewData["Id"] = new SelectList(_context.AppUsers, "Id", "Id", text.Id);
-            return View(text);
+
+            if (string.Compare(User.FindFirstValue(ClaimTypes.NameIdentifier), text.Id) == 0 || User.IsInRole("admin"))
+            {
+                ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "Name", text.CategoryId);
+                ViewData["Author"] = text.Id;
+                return View(text);
+            }
+            else
+            {
+                return RedirectToAction(nameof(Index));
+            }
         }
 
         // POST: Texts/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "admin, author")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("TextId,Title,Summary,Keywords,Content,Graphic,Active,AddedDate,CategoryId,Id")] Text text)
+        public async Task<IActionResult> Edit(int textid, [Bind("TextId,Title,Summary,Keywords,Content,Graphic,Active,AddedDate,CategoryId,Id")] Text text, IFormFile? picture)
         {
-            if (id != text.TextId)
+            if (textid != text.TextId)
             {
                 return NotFound();
             }
 
             if (ModelState.IsValid)
             {
+                if (picture != null && picture.Length > 0)
+                {
+                    ImageFileUpload imageFileResult = new(_hostEnvironment);
+                    FileSendResults fileSendResult = imageFileResult.SendFile(picture, "img", 600);
+                    if (fileSendResult.Success)
+                    {
+                        text.Graphic = fileSendResult.Name;
+                    }
+                    else
+                    {
+                        ViewBag.ErrorMessage = "Wybrany plik nie jest obrazkiem!";
+                        ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "Name", text.CategoryId);
+                        ViewData["Author"] = text.Id;
+                        return View(text);
+                    }
+                }
                 try
                 {
                     _context.Update(text);
@@ -198,12 +257,13 @@ namespace Info.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "Description", text.CategoryId);
-            ViewData["Id"] = new SelectList(_context.AppUsers, "Id", "Id", text.Id);
+            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "Name", text.CategoryId);
+            ViewData["Author"] = text.Id;
             return View(text);
         }
 
         // GET: Texts/Delete/5
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Texts == null)
@@ -224,6 +284,7 @@ namespace Info.Controllers
         }
 
         // POST: Texts/Delete/5
+        [Authorize(Roles = "admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

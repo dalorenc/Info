@@ -4,6 +4,5 @@
     {
         public IEnumerable<Text>? Texts { get; set; }
         public TextsView? TextsView { get; set; }
-
     }
 }

@@ -6,9 +6,6 @@
 
 <h1 class="oswald text-primary">Teksty</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table" id="teksty">
     <thead>
         <tr>
@@ -34,7 +31,7 @@
                 @Html.DisplayNameFor(model => model.AddedDate)
             </th>
             <th>
-               Kategoria:
+                Kategoria:
             </th>
             <th>
                 Autor:
@@ -54,7 +51,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Keywords)
             </td>
-                <td>
+            <td>
                     @if (item.Content.Length <= 75)
                     {
                         @Html.DisplayFor(modelItem => item.Content)
@@ -80,10 +77,11 @@
                 @Html.DisplayFor(modelItem => item.User.FullName)
             </td>
             <td>
-<a class="btn btn-outline-primary rounded-circle my-1" title="Szczegóły" asp-action="Details" asp-route-id="@item.TextId"><i class="bi-eye" arialabel="Treść tekstu"></i></a>
-<a class="btn btn-outline-warning rounded-circle my-1" title="Edycja" aspaction="Edit" asp-route-id="@item.TextId"><i class="bi-pen-fill" arialabel="Edycja tekstu"></i></a>
-<a class="btn btn-outline-danger rounded-circle my-1" title="Usuwanie" aspaction="Delete" asp-route-id="@item.TextId"><i class="bi-trash" arialabel="Usuwanie tekstu"></i></a>
-</td>
+                    <a class="btn btn-outline-primary rounded-circle my-1" title="Szczegóły" asp-action="Details" asp-route-id="@item.TextId"><i class="bi-eye" arialabel="Treść tekstu"></i></a>
+                    <a class="btn btn-outline-info rounded-circle my-1" title="Opinie" asp-action="Index" asp-controller="Opinions" asp-route-id="@item.TextId"><i class="bi-chat-left-text" arialabel="Opinie o tekście"></i></a>
+                    <a class="btn btn-outline-warning rounded-circle my-1" title="Edycja" asp-action="Edit" asp-route-id="@item.TextId"><i class="bi-pen-fill" arialabel="Edycja tekstu"></i></a>
+                    <a class="btn btn-outline-danger rounded-circle my-1" title="Usuwanie" asp-action="Delete" asp-route-id="@item.TextId"><i class="bi-trash" arialabel="Usuwanie tekstu"></i></a>
+            </td>
         </tr>
 }
     </tbody>

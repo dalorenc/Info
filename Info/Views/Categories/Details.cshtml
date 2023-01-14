@@ -7,7 +7,7 @@
 <h1 class="text-primary oswald">Szczegóły</h1>
 
 <div>
-<h4 class="text-success"><b>Kategoria</b></h4>
+    <h4 class="text-success"><b>Kategoria</b></h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -26,7 +26,7 @@
             @Html.DisplayNameFor(model => model.Icon)
         </dt>
         <dd class = "col-sm-10">
-            <i class="bi-@Model.Icon" style="font-size:2rem;"></i><br />
+            <i class="bi-@Model.Icon"></i><br />
             @Html.DisplayFor(model => model.Icon)
         </dd>
         <dt class = "col-sm-2">
@@ -44,6 +44,6 @@
     </dl>
 </div>
 <div>
-<a asp-action="Edit" class="btn btn-warning" asp-routeid="@Model?.CategoryId">Edycja</a>
-<a asp-action="Index" class="btn btn-light">Powrót do listy</a>
+    <a asp-action="Edit" asp-route-id="@Model?.CategoryId" class="btn btn-warning">Edytuj</a>
+    <a asp-action="Index" class="btn btn-light">Powrót do listy</a>
 </div>

@@ -6,10 +6,12 @@ namespace Info.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+            : base(options)
         {
         }
-           public DbSet<Category>? Categories { get; set; }
+
+        public DbSet<Category>? Categories { get; set; }
         public DbSet<Text>? Texts { get; set; }
         public DbSet<Opinion>? Opinions { get; set; }
         public DbSet<AppUser>? AppUsers { get; set; }

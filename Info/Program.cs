@@ -17,6 +17,7 @@ builder.Services.AddDefaultIdentity<AppUser>(options => options.SignIn.RequireCo
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
@@ -44,13 +45,15 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
-    name: "texts",
-    pattern: "Tekstyinformatyczne",
+    name: "pages",
+    pattern: "Teksty informatyczne/Strona{PageNumber}",
     defaults: new { controller = "Texts", action = "Index" });
+
 app.MapControllerRoute(
-     name: "pages",
-     pattern: "Tekstyinformatyczne/Strona{PageNumber}",
-     defaults: new { controller = "Texts", action = "Index" });
+    name: "texts",
+    pattern: "Teksty informatyczne",
+    defaults: new { controller = "Texts", action = "Index" });
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

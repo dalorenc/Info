@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using Info.Data;
+﻿using Info.Data;
 using Info.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Info.Controllers
 {
@@ -60,16 +55,19 @@ namespace Info.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("CategoryId,Name,Description,Icon,Active,Display")] Category category)
         {
-            if (!CategoryNameExists(category.Name))
+            if (ModelState.IsValid)
             {
-                _context.Add(category);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            else
-            {
-                ViewBag.ErrorMessage = "Kategoria o takiej nazwie już istnieje!";
-                return View("Create");
+                if (!CategoryNameExists(category.Name))
+                {
+                    _context.Add(category);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    ViewBag.ErrorMessage = "Kategoria o takiej nazwie już istnieje";
+                    return View("Create");
+                }
             }
             return View(category);
         }
@@ -142,7 +140,6 @@ namespace Info.Controllers
             {
                 return NotFound();
             }
-
             if (TextsInCategory((int)id))
             {
                 ViewBag.DeleteMessage = "Nie można usunąć wybranej kategorii, gdyż posiada przypisane teksty.";
@@ -176,15 +173,14 @@ namespace Info.Controllers
           return _context.Categories.Any(e => e.CategoryId == id);
         }
 
-        private bool CategoryNameExists(string? name)
+        private bool CategoryNameExists(string name)
         {
-            return (_context.Categories?.Any(e => e.Name == name)).GetValueOrDefault();
+            return _context.Categories.Any(e => e.Name == name);
         }
 
         private bool TextsInCategory(int id)
         {
             return (_context.Texts?.Any(t => t.CategoryId == id)).GetValueOrDefault();
         }
-
     }
 }

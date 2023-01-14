@@ -4,10 +4,10 @@
     ViewData["Title"] = "Lista kategorii";
 }
 
-<h1 class="text-primary oswald">Lista kategorii</h1>
+<h1 class="oswald text-primary">Lista kategorii</h1>
 
 <p>
-    <a asp-action="Create" class="btn btn-warning">Utwórz nową</a>
+    <a asp-action="Create" class="btn btn-warning">Dodaj kategorię</a>
 </p>
 <table class="table">
     <thead>
@@ -40,7 +40,7 @@
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
-                <i class="bi-@item.Icon"></i><br/>
+                <i class="bi-@item.Icon"></i><br />
                 @Html.DisplayFor(modelItem => item.Icon)
             </td>
             <td>
@@ -49,17 +49,15 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Display)
             </td>
-            <td>
-
-                                            <a class="btn btn-outline-warning rounded-circle my-1" title="Szczegóły" asp-action="Details" asp-route-id="@item.CategoryId"><i class="bi-eye-fill" aria-label="Szczegóły kategorii"></i></a>
-
+            <td> 
+                    <a asp-action="Details" asp-route-id="@item.CategoryId" class="btn btn-outline-primary rounded-circle my-1" title="Szczegóły"><i class="bi-eye" aria-label="Szczegóły"></i></a>
                     @{
-                        if(User.IsInRole("admin"))
+                        if (User.IsInRole("admin"))
                         {
-                                            <a class="btn btn-outline-primary rounded-circle my-1" title="Edycja" asp-action="Edit" asp-route-id="@item.CategoryId"><i class="bi-pen-fill" aria-label="Edycja kategorii"></i></a>
-                <a class="btn btn-outline-danger rounded-circle my-1" title="Usuń" asp-action="Delete" asp-route-id="@item.CategoryId"><i class="bi-trash-fill" aria-label="Usuń kategorię"></i></a>
+                            <a asp-action="Edit" asp-route-id="@item.CategoryId" class="btn btn-outline-warning rounded-circle my-1" title="Edytuj"><i class="bi-pen-fill" aria-label="Edycja"></i></a>
+                            <a asp-action="Delete" asp-route-id="@item.CategoryId" class="btn btn-outline-danger rounded-circle my-1" title="Usuń"><i class="bi-trash" aria-label="Usuń"></i></a>
                         }
-                    }  
+                    }
             </td>
         </tr>
 }

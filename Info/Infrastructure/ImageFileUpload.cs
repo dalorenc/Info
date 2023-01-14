@@ -11,9 +11,9 @@ namespace Info.Infrastructure
             hostingEnvironment = environment;
         }
 
-        public FileSendResult SendFile(IFormFile picture, string destination, int width)
+        public FileSendResults SendFile(IFormFile picture, string destination, int width)
         {
-            FileSendResult SendingFile = new();
+            FileSendResults SendingFile = new();
 
             string extension = Path.GetExtension(picture.FileName);
             if (!FileTypeCheck(extension))
