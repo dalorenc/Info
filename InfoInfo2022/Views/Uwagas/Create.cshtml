@@ -1,0 +1,53 @@
+﻿@model info_2022.Models.Uwaga
+
+@{
+    ViewData["Title"] = "Create";
+}
+<h1 class="oswald text-primary">Dodaj uwagę</h1>
+<h4 class="oswald text-primary">Czekamy na Twoją uwagę</h4>
+<hr />
+<div class="row">
+    <div class="uwagaform">
+    <div class="col-md-8 interspace">
+         <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" id="TextId" name="TextId" value="@ViewData["IdText"]" />
+
+
+                     <div class="row">
+            <div class="col">
+              <div class="form-group">
+                        <label asp-for="Imie" class="control-label"></label>
+                        <input asp-for="Imie" class="form-control" />
+                        <span asp-validation-for="Imie" class="text-danger">Podaj imię</span>
+                    </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                        <label asp-for="Adres" class="control-label"></label>
+                        <input asp-for="Adres" class="form-control" />
+                        <span asp-validation-for="Adres" class="text-danger">Podaj adres e-mail</span>
+                    </div>
+            </div>
+          </div>
+            <div class="form-group">
+                <label asp-for="TekstUwaga" class="control-label">Wpisz swoje uwagi i komentarze</label>
+                <textarea asp-for="TekstUwaga" class="form-control"></textarea>
+                <span asp-validation-for="TekstUwaga" class="text-danger"></span>
+            </div>
+        </form>
+    </div>
+    </div>
+<div>
+                <input type="submit" value="Prześlij" class="btn btn-primary" />
+                <a asp-controller="Texts" asp-action="Details" asp-route-id=@ViewData["IdText"] class="btn btn-light">Powrót do tekstu</a>
+</div>
+
+
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

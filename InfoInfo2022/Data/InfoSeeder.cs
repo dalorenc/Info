@@ -18,6 +18,7 @@ namespace info_2022.Data
                     SeedCategoris(dbContext);
                     SeedTexts(dbContext);
                     SeedOpinions(dbContext);
+                    SeedUwagi(dbContext);
                 }
         }
 
@@ -237,5 +238,18 @@ namespace info_2022.Data
                 dbContext.SaveChanges();
             }
         } //koniec treści opinii
+
+        //dodawanie uwag
+        private static void SeedUwagi(ApplicationDbContext dbContext)
+        {
+            if (!dbContext.Uwaga.Any())
+            {
+                var uwaga1 = new Uwaga { Imie = "Jan", Adres = "ul. Krakowska 1", TekstUwaga = "Brak miejsc parkingowych", Rozpatrzone = false };
+                var uwaga2 = new Uwaga { Imie = "Anna", Adres = "ul. Warszawska 2", TekstUwaga = "Zły stan chodnika", Rozpatrzone = true };
+                dbContext.Set<Uwaga>().Add(uwaga1);
+                dbContext.Set<Uwaga>().Add(uwaga2);
+            }
+            dbContext.SaveChanges();
+        }
+        }
     }
-}

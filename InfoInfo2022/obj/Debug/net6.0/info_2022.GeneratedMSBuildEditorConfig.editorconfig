@@ -5,121 +5,140 @@ build_property.UsingMicrosoftNETSdkWeb = true
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
 build_property.PlatformNeutralAssembly = 
-build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = info_2022
 build_property.RootNamespace = info_2022
-build_property.ProjectDir = C:\Users\jaros\source\repos\PAI\Info2022\info_2022\
+build_property.ProjectDir = C:\Users\loren\source\repos\InfoInfo2022\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\jaros\source\repos\PAI\Info2022\info_2022
+build_property.MSBuildProjectDirectory = C:\Users\loren\source\repos\InfoInfo2022
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/jaros/source/repos/PAI/Info2022/info_2022/Areas/Identity/Pages/_ViewStart.cshtml]
+[C:/Users/loren/source/repos/InfoInfo2022/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jaros/source/repos/PAI/Info2022/info_2022/Views/Categories/Create.cshtml]
+[C:/Users/loren/source/repos/InfoInfo2022/Views/Categories/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jaros/source/repos/PAI/Info2022/info_2022/Views/Categories/Delete.cshtml]
+[C:/Users/loren/source/repos/InfoInfo2022/Views/Categories/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jaros/source/repos/PAI/Info2022/info_2022/Views/Categories/Details.cshtml]
+[C:/Users/loren/source/repos/InfoInfo2022/Views/Categories/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jaros/source/repos/PAI/Info2022/info_2022/Views/Categories/Edit.cshtml]
+[C:/Users/loren/source/repos/InfoInfo2022/Views/Categories/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jaros/source/repos/PAI/Info2022/info_2022/Views/Categories/Index.cshtml]
+[C:/Users/loren/source/repos/InfoInfo2022/Views/Categories/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jaros/source/repos/PAI/Info2022/info_2022/Views/Home/Index.cshtml]
+[C:/Users/loren/source/repos/InfoInfo2022/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jaros/source/repos/PAI/Info2022/info_2022/Views/Home/Privacy.cshtml]
+[C:/Users/loren/source/repos/InfoInfo2022/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jaros/source/repos/PAI/Info2022/info_2022/Views/Opinions/Create.cshtml]
+[C:/Users/loren/source/repos/InfoInfo2022/Views/Opinions/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3BpbmlvbnNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jaros/source/repos/PAI/Info2022/info_2022/Views/Opinions/CreatePartial.cshtml]
+[C:/Users/loren/source/repos/InfoInfo2022/Views/Opinions/CreatePartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3BpbmlvbnNcQ3JlYXRlUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jaros/source/repos/PAI/Info2022/info_2022/Views/Opinions/Delete.cshtml]
+[C:/Users/loren/source/repos/InfoInfo2022/Views/Opinions/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3BpbmlvbnNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jaros/source/repos/PAI/Info2022/info_2022/Views/Opinions/Details.cshtml]
+[C:/Users/loren/source/repos/InfoInfo2022/Views/Opinions/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3BpbmlvbnNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jaros/source/repos/PAI/Info2022/info_2022/Views/Opinions/Edit.cshtml]
+[C:/Users/loren/source/repos/InfoInfo2022/Views/Opinions/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3BpbmlvbnNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jaros/source/repos/PAI/Info2022/info_2022/Views/Opinions/Index.cshtml]
+[C:/Users/loren/source/repos/InfoInfo2022/Views/Opinions/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3BpbmlvbnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jaros/source/repos/PAI/Info2022/info_2022/Views/Shared/Error.cshtml]
+[C:/Users/loren/source/repos/InfoInfo2022/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jaros/source/repos/PAI/Info2022/info_2022/Views/Shared/_LoginPartial.cshtml]
+[C:/Users/loren/source/repos/InfoInfo2022/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jaros/source/repos/PAI/Info2022/info_2022/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/loren/source/repos/InfoInfo2022/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jaros/source/repos/PAI/Info2022/info_2022/Views/Texts/Create.cshtml]
+[C:/Users/loren/source/repos/InfoInfo2022/Views/Texts/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGV4dHNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jaros/source/repos/PAI/Info2022/info_2022/Views/Texts/Delete.cshtml]
+[C:/Users/loren/source/repos/InfoInfo2022/Views/Texts/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGV4dHNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jaros/source/repos/PAI/Info2022/info_2022/Views/Texts/Details.cshtml]
+[C:/Users/loren/source/repos/InfoInfo2022/Views/Texts/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGV4dHNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jaros/source/repos/PAI/Info2022/info_2022/Views/Texts/Edit.cshtml]
+[C:/Users/loren/source/repos/InfoInfo2022/Views/Texts/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGV4dHNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jaros/source/repos/PAI/Info2022/info_2022/Views/Texts/Index.cshtml]
+[C:/Users/loren/source/repos/InfoInfo2022/Views/Texts/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGV4dHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jaros/source/repos/PAI/Info2022/info_2022/Views/Texts/List.cshtml]
+[C:/Users/loren/source/repos/InfoInfo2022/Views/Texts/List.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGV4dHNcTGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jaros/source/repos/PAI/Info2022/info_2022/Views/_ViewImports.cshtml]
+[C:/Users/loren/source/repos/InfoInfo2022/Views/Uwagas/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXdhZ2FzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/loren/source/repos/InfoInfo2022/Views/Uwagas/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXdhZ2FzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/loren/source/repos/InfoInfo2022/Views/Uwagas/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXdhZ2FzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/loren/source/repos/InfoInfo2022/Views/Uwagas/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXdhZ2FzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/loren/source/repos/InfoInfo2022/Views/Uwagas/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXdhZ2FzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/loren/source/repos/InfoInfo2022/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jaros/source/repos/PAI/Info2022/info_2022/Views/_ViewStart.cshtml]
+[C:/Users/loren/source/repos/InfoInfo2022/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jaros/source/repos/PAI/Info2022/info_2022/Views/Shared/_Layout.cshtml]
+[C:/Users/loren/source/repos/InfoInfo2022/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-59qynwrg7s
 
-[C:/Users/jaros/source/repos/PAI/Info2022/info_2022/Views/Shared/_LayoutHome.cshtml]
+[C:/Users/loren/source/repos/InfoInfo2022/Views/Shared/_LayoutHome.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRIb21lLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = b-5cad7qaj44

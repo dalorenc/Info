@@ -17,7 +17,7 @@ namespace info_2022.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.6")
+                .HasAnnotation("ProductVersion", "6.0.13")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -140,6 +140,31 @@ namespace info_2022.Data.Migrations
                     b.HasIndex("Id");
 
                     b.ToTable("Texts");
+                });
+
+            modelBuilder.Entity("info_2022.Models.Uwaga", b =>
+                {
+                    b.Property<int>("IdUwaga")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdUwaga"), 1L, 1);
+
+                    b.Property<string>("Adres")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Imie")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Rozpatrzone")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("TekstUwaga")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdUwaga");
+
+                    b.ToTable("Uwaga");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

@@ -15,6 +15,7 @@ namespace info_2022.Data
         public DbSet<Text>? Texts { get; set; }
         public DbSet<Opinion>? Opinions { get; set; }
         public DbSet<AppUser>? AppUsers { get; set; }
+        public DbSet<Uwaga>? Uwaga { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelbuilder)
         {
